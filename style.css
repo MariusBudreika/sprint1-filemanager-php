@@ -1,0 +1,18 @@
+table {
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid rgb(114, 113, 113);
+  padding: 10px;
+}
+
+th {
+  background-color: aliceblue;
+}
+
+form {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
