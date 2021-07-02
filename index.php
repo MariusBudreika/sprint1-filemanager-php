@@ -1,5 +1,5 @@
 <?php
-//check
+//auth
 session_start();
 if (!$_SESSION['logged_in']) {
     header('Location: ' . 'login.php');
@@ -19,7 +19,7 @@ if (!$_SESSION['logged_in']) {
 
 <body>
     <?php
-    //open/list folders and files + Forms.
+    //open/list folders
     print('<h1>File manager</h1>');
     $path = "./" . $_GET['path'];
     $files = array_diff(scandir($path), array('..', '.'));
@@ -33,11 +33,11 @@ if (!$_SESSION['logged_in']) {
             ? $_SERVER['REQUEST_URI'] . $file . '/'
             : $_SERVER['REQUEST_URI'] . '?path=' . $file . '/') . '">' . $file . '</a>'
             : $file) . '</td>');
-            print('<td>'
+        print('<td>'
             . (is_dir($path . $file)
                 ? ''
                 : '<form style="display: inline-block" action="" method="post">
-                <input type="hidden" name="download" value=' . $file. '>
+                <input type="hidden" name="download" value=' . $file . '>
                 <button id="download" type="submit">Download</button>
                </form>
                 <form style="display: inline-block" action="" method="post">
@@ -46,8 +46,8 @@ if (!$_SESSION['logged_in']) {
                 </form>')
             . "</form></td>");
         print('</tr>');
-}
-print("</table>");
+    }
+    print("</table>");
 
     // delete
     if (isset($_POST['delete'])) {
@@ -78,7 +78,6 @@ print("</table>");
     create();
 
     // Upload img
-    // print_r($_FILES);
     if (isset($_FILES['image'])) {
         $errors = array();
         $file_name = $_FILES['image']['name'];

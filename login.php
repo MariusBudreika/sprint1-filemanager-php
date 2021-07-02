@@ -38,8 +38,8 @@ if (isset($_POST['login']) && !empty($_POST['username']) && !empty($_POST['passw
 <div>
     <form action="./login.php" method="post">
         <h4><?php echo $msg; ?></h4>
-        <input type="text" name="username" placeholder="username" required autofocus></br>
-        <input type="password" name="password" placeholder="password" required>
+        <input type="text" name="username" placeholder="username=Marius" required autofocus></br>
+        <input type="password" name="password" placeholder="password=1234" required>
         <button class="btn" type="submit" name="login">Login</button>
     </form>
 </div>
